@@ -69,7 +69,8 @@ ITEM_PIPELINES = {
     'scrapy.piplines.files.FilesPipeline': 1,
     'tutorial.pipelines.TutorialPipeline': 300
 }
-FILES_STORE = "C:\pic"
+
+FILES_STORE = 'C:\\pic'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
