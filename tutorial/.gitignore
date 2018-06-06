@@ -1,2 +1,9 @@
 .vscode/
-__pycache__
+__pycache__/
+
+
+# pics from spider
+pic_exmple/
+pic/
+img/
+videos/
