@@ -1,20 +1,15 @@
 #-*-coding:utf-8-*-
 import scrapy
-
 class PicSpider(scrapy.Spider):
     name = "pic"
-
+    alllowed_domains = ["27270.com"]
     def start_requests(self):
         urls = [
-            'http://quotes.toscrape.com/page/1/',
-            'http://quotes.toscrape.com/page/2/',
+            'http://www.27270.com/ent/meinvtupian/',
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
-
     def parse(self, response):
-        page = response.url.split("/")[-2]
-        filename = 'quotes-%s.html' % page
-        with open(filename, 'wb') as f:
-            f.write(response.body)
-        self.log('Saved file %s' % filename)
+        sl = response.xpath('//div[@class="MeinvTuPianBox"]//img/@src').extract()
+        yield {'image_urls':sl}
+    pass
